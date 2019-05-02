@@ -2,6 +2,7 @@ package pl.codecool.textloader;
 
 import pl.codecool.textiterator.CharIterator;
 import pl.codecool.textiterator.IterableText;
+import pl.codecool.textiterator.WordIterator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -37,6 +38,7 @@ public class FileContent implements IterableText {
 
     @Override
     public Iterator<String> wordIterator() {
-        return null;
+        Iterator<String> wordIterator = new WordIterator(fileContent);
+        return wordIterator;
     }
 }

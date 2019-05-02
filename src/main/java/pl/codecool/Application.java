@@ -3,6 +3,7 @@ package pl.codecool;
 import pl.codecool.textloader.FileContent;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,7 +14,8 @@ public class Application {
             for (String filename: args) {
                 try {
                     FileContent fileContent = new FileContent(filename);
-                    fileContent.charIterator();
+                    Iterator<String> charIterator = fileContent.charIterator();
+                    Iterator<String> wordIterator = fileContent.wordIterator();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
