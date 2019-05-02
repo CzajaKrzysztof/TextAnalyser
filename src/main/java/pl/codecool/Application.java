@@ -13,6 +13,7 @@ public class Application {
             for (String filename: args) {
                 try {
                     FileContent fileContent = new FileContent(filename);
+                    fileContent.charIterator();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -1,5 +1,6 @@
 package pl.codecool.textloader;
 
+import pl.codecool.textiterator.CharIterator;
 import pl.codecool.textiterator.IterableText;
 
 import java.io.BufferedReader;
@@ -30,7 +31,8 @@ public class FileContent implements IterableText {
 
     @Override
     public Iterator<String> charIterator() {
-        return null;
+        Iterator<String> charIterator = new CharIterator(fileContent);
+        return charIterator;
     }
 
     @Override
