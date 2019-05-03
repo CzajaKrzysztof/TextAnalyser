@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class FileContent implements IterableText {
-    public String fileContent;
+    private String fileContent;
 
     public FileContent(String filename) throws IOException {
         fileContent = getFileContent(filename);
