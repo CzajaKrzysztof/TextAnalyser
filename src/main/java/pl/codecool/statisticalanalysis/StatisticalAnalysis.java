@@ -26,7 +26,13 @@ public class StatisticalAnalysis {
     }
 
     public int countOf(String... strings) {
-        int count =0;
+        int count = 0;
+        for (int i = 0; i < strings.length; i++) {
+            String key = strings[i];
+            if(dictionary.getOrDefault(key, -1) != -1) {
+                count += dictionary.get(strings[i]);
+            }
+        }
 
         return count;
     }
