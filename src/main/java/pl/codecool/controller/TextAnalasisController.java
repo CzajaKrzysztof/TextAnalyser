@@ -20,16 +20,20 @@ public class TextAnalasisController {
             view.print("You need to pass file name ass argument.\n");
         } else {
             for (String filename : args) {
-                FileContent fileContent = null;
-                try {
-                    fileContent = new FileContent(filename);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                FileContent fileContent = loadFileContent(filename);
                 showFileStatistics(filename, fileContent);
             }
         }
+    }
+
+    private FileContent loadFileContent(String filename) {
+        FileContent fileContent = null;
+        try {
+            fileContent = new FileContent(filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileContent;
     }
 
     private void showFileStatistics(String filename, FileContent fileContent) {
