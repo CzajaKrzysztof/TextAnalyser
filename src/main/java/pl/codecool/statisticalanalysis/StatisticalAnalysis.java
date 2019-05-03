@@ -35,7 +35,12 @@ public class StatisticalAnalysis {
     }
 
     public int size() {
+        int sumOfEntries = 0;
+        for(String key: dictionary.keySet()) {
+            sumOfEntries += dictionary.get(key);
+        }
 
+        return sumOfEntries;
     }
 
     public Set<String> occurMoreThen(int) {
