@@ -1,13 +1,10 @@
 package pl.codecool.statisticalanalysis;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class StatisticalAnalysis {
-    Iterator<String> iterator;
-    TreeMap<String, Integer> dictionary;
+    private Iterator<String> iterator;
+    private TreeMap<String, Integer> dictionary;
 
     public StatisticalAnalysis(Iterator<String> iterator) {
         this.iterator = iterator;
@@ -30,7 +27,7 @@ public class StatisticalAnalysis {
         for (int i = 0; i < strings.length; i++) {
             String key = strings[i];
             if(dictionary.getOrDefault(key, -1) != -1) {
-                count += dictionary.get(strings[i]);
+                count += dictionary.get(key);
             }
         }
 
@@ -50,8 +47,8 @@ public class StatisticalAnalysis {
         return sumOfEntries;
     }
 
-    public Set<String> occurMoreThen(int times) {
-        Set<String> occurens = new HashSet<>();
+    public TreeSet<String> occurMoreThen(int times) {
+        TreeSet<String> occurens = new TreeSet<>();
 
         for(String key: dictionary.keySet()) {
             if(dictionary.get(key) > times) {
@@ -60,5 +57,9 @@ public class StatisticalAnalysis {
         }
 
         return occurens;
+    }
+
+    public TreeMap<String, Integer> getDictionary() {
+        return dictionary;
     }
 }
