@@ -1,5 +1,6 @@
 package pl.codecool.statisticalanalysis;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
@@ -43,7 +44,15 @@ public class StatisticalAnalysis {
         return sumOfEntries;
     }
 
-    public Set<String> occurMoreThen(int) {
+    public Set<String> occurMoreThen(int times) {
+        Set<String> occurens = new HashSet<>();
 
+        for(String key: dictionary.keySet()) {
+            if(dictionary.get(key) > times) {
+                occurens.add(key);
+            }
+        }
+
+        return occurens;
     }
 }
