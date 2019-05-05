@@ -19,10 +19,12 @@ public class TextAnalasisController {
         if (args.length == 0) {
             view.print("You need to pass file name ass argument.\n");
         } else {
+            long startTime = System.nanoTime();
             for (String filename : args) {
                 FileContent fileContent = loadFileContent(filename);
                 showFileStatistics(filename, fileContent);
             }
+            view.print(String.format("Benchmark time: %.3f sec", (System.nanoTime() - startTime) / 1000000000.0));
         }
     }
 
