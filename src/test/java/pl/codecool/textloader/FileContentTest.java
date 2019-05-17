@@ -12,6 +12,6 @@ class FileContentTest {
     public void testGetFileContentThrowsException() {
         assertThrows(IOException.class, () -> {
             FileContent fileContent = new FileContent("badFileName.txt");
-        });
+        }, "Test file loading class for thrown IOException with bad file name");
     }
 }
