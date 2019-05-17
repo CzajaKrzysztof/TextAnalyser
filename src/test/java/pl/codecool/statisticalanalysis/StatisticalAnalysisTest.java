@@ -31,43 +31,63 @@ class StatisticalAnalysisTest {
 
     @Test
     void testIfDictionaryIsPopulatedByCharIterator() {
-        assertTrue(charStatistics.getDictionary().size() > 0);
+        assertTrue(charStatistics.getDictionary().size() > 0, "Test if dictionary is populated by " +
+                "character iterator");
     }
 
     @Test
     void testIfDictionaryIsPopulatedByWOrdIterator() {
-        assertTrue(wordStatistics.getDictionary().size() > 0);
+        assertTrue(wordStatistics.getDictionary().size() > 0, "Test if dictionary is populated by " +
+                "word iterator");
     }
 
     @Test
     void testCharCount() {
-        assertEquals(1031, charStatistics.size());
+        assertEquals(1031, charStatistics.size(), "Test size method to sum counts of chars in " +
+                "dictionary");
     }
 
     @Test
     void testWordCount() {
-        assertEquals(268, wordStatistics.size());
+        assertEquals(268, wordStatistics.size(), "Test size method to sum counts of words in " +
+                "dictionary");
     }
 
     @Test
     void testWordsDictionarySize() {
-        assertEquals(141, wordStatistics.dictionarySize());
+        assertEquals(141, wordStatistics.dictionarySize(), "Test dictionarySize method returning " +
+                "size of dictionary");
     }
 
     @Test
-    void testCountOfForSingleWord() {
-        assertEquals(1, wordStatistics.countOf("love"));
+    void testCountOfForSingleString() {
+        assertEquals(1, wordStatistics.countOf("love"), "Test countOf method returning " +
+                "count of specified string from dictionary");
     }
 
     @Test
-    void testCountOfForMultipleWords() {
-        assertEquals(4, wordStatistics.countOf("love", "music"));
+    void testCountOfForMultipleStrings() {
+        assertEquals(4, wordStatistics.countOf("love", "music"), "Test countOf method " +
+                "returning count of multiple specified strings from dictionary");
     }
 
     @Test
-    void testOccureMoreThenOnePercent() {
+    void testCountOfWIthNoStrings() {
+        assertEquals(0, wordStatistics.countOf(), "Test countOf method with no argument provided");
+    }
+
+    @Test
+    void testCountOfWIthEmptyString() {
+        assertEquals(0, wordStatistics.countOf(""), "Test countOf method with empty " +
+                "string provided");
+    }
+
+    @Test
+    void testOccurMoreThenOnePercent() {
         String[] expectedWords = {"a","and","as","been","but","figure","had","i","in","is","it","me","music","no","not",
                 "of","old","the","to","was","where"};
-        assertArrayEquals(expectedWords, wordStatistics.occurMoreThen(wordStatistics.size() / 100).toArray());
+        assertArrayEquals(expectedWords, wordStatistics.occurMoreThen(wordStatistics.size() / 100).toArray(),
+                "Test method occurMoreThen method returning collection of strings occurring in dictionary " +
+                        "more then given %");
     }
 }
