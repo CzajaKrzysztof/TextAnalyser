@@ -3,9 +3,12 @@ package pl.codecool.controller;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+import pl.codecool.textloader.FileContent;
 import pl.codecool.view.View;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,7 +34,6 @@ class TextAnalysisControllerTest {
         TextAnalysisController controller = new TextAnalysisController(args, view);
         controller.run();
         assertEquals("You need to pass file name ass argument.\n", outContent.toString(), "Test " +
-                "controller`s main methos run() with empty args array.");
+                "controller`s main method run() with empty args array.");
     }
-
 }
