@@ -10,12 +10,12 @@ public class TextAnalasisController {
     View view;
     String[] args;
 
-    public TextAnalasisController(String[] args) {
-        view = new View();
+    public TextAnalasisController(String[] args, View view) {
+        this.view = view;
         this.args = args;
     }
 
-    public void runner() {
+    public void run() {
         if (args.length == 0) {
             view.print("You need to pass file name ass argument.\n");
         } else {

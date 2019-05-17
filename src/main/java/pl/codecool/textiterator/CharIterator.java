@@ -3,8 +3,8 @@ package pl.codecool.textiterator;
 import java.util.Iterator;
 
 public class CharIterator implements Iterator<String> {
-    String[] fileContentList;
-    int index;
+    private String[] fileContentList;
+    private int index;
 
     public CharIterator(String fileContent) {
         fileContentList = splitContentToList(fileContent);
