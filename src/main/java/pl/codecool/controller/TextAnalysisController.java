@@ -6,11 +6,11 @@ import pl.codecool.view.View;
 
 import java.io.IOException;
 
-public class TextAnalasisController {
+public class TextAnalysisController {
     View view;
     String[] args;
 
-    public TextAnalasisController(String[] args, View view) {
+    public TextAnalysisController(String[] args, View view) {
         this.view = view;
         this.args = args;
     }
